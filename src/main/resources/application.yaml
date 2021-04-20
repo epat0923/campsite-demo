@@ -1,0 +1,28 @@
+server:
+  port: 8088
+  error:
+    include-message: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservation
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+reservation:
+  executor:
+    core-pool-size: 20
+    max-pool-size: 1000
+    queue-capacity: 1000
+  config:
+    maxReserveDays: 3
+    minAdvanceBookingDays: 1
+    maxAdvanceBookingMonths: 1
